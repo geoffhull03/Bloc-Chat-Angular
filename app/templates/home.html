@@ -1,0 +1,12 @@
+<div class="room-list">
+<h1>Chatty McChat Face</h1>
+    <div ng-repeat="room in home.rooms">
+    <h3 ng-click="home.selectRoom(room)">{{ room.name }}<h3>
+    </div>
+    <div class="create-room">
+        <h4>Create New Chat Room:</h4>
+        <div>
+            <input ng-model="home.roomName">
+            <input type="submit" value="Create" ng-click="home.addRoom()">
+        </div>
+    </div>
