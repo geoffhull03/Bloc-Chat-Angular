@@ -1,5 +1,5 @@
 <div class="room-list">
-<h1>Chatty McChat Face</h1>
+<h1>Chatty McChatface</h1>
     <div ng-repeat="room in home.rooms">
     <h3 ng-click="home.selectRoom(room)">{{ room.name }}<h3>
     </div>
@@ -13,5 +13,10 @@
 </div>
 <div class="messages-container">
     <h1>{{ home.currentRoom.name }}</h1>
+        <div class="messages" ng-repeat="message in home.messages">
+            <div id="content">{{ message.content }}</div>
+            <div id="sentat">{{ message.sentAt }}</div>
+            <div id="username">{{ message.username }}</div>
+         </div>
 </div>
     
