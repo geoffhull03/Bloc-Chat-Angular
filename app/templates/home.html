@@ -1,5 +1,5 @@
 <div class="room-list">
-<h1>Chatty McChat Face</h1>
+<h1>Bloc Chat</h1>
     <div ng-repeat="room in home.rooms">
     <h3 ng-click="home.selectRoom(room)">{{ room.name }}<h3>
     </div>
@@ -10,3 +10,14 @@
             <input type="submit" value="Create" ng-click="home.addRoom()">
         </div>
     </div>
+</div>
+<div class="messages-container">
+    <h1>{{ home.currentRoom.name }}</h1>
+        <div ng-repeat="message in home.messages">
+            <div class="time"> {{ message.time | date:'short'}}</div>
+            <div class="username">{{ message.username }}</div>
+            <div class="content">{{ message.content }}</div>
+            
+         </div>
+</div>
+    

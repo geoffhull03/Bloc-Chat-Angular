@@ -1,10 +1,29 @@
 (function() {
-    function HomeCtrl(Room) {
+    function HomeCtrl(Room, Message) {
+       
         this.rooms = Room.all;
-        //console.log(Room);
+        
+        this.roomName = null;
+        
+        this.currentRoom = null;
+        
+        this.selectRoom = function(room) {
+            this.currentRoom = room;
+            this.messages = Message.getByRoomId(this.currentRoom.$id);
+        }
+        
+        this.addRoom = function() {
+            Room.add(this.roomName);
+        }  
+        
+        this.messages = null;
+        
+        this.setCurrentRoom = function(room){
+            this.messages = Message.getByRoomId(this.currentRoom.$id);
+        }
     }
     
     angular
         .module('blocChat')
-        .controller('HomeCtrl', ['Room', HomeCtrl]);
+        .controller('HomeCtrl', ['Room', 'Message', HomeCtrl]);
 })();
