@@ -1,18 +1,16 @@
 (function() {
-    function SetUserCtrl($scope, $location, $cookies) {
+    function SetUserCtrl($cookies, $location) {
     
-    //The form to enter a room name should be up.     
-    this.showChatRooms = false;
+    this.userName = null;
     
-    this.setUsername = function() {
-        $cookies.put('blocChatCurrentUser',//value --> The User Name)
-        //the chat rooms will show when submit is clicked and a username is present
-        this.showChatRooms = true;
+    this.setUserName = function(userName) {
+        $cookies.put('blocChatCurrentUser', this.userName)
+        $location.path('/');
        
         }
     }
-}
+    
     angular
         .module('blocChat')
-        .controller('SetUserCtrl', ['$scope','$location', '$cookies', SetUserCtrl])
+        .controller('SetUserCtrl', ['$cookies', '$location', SetUserCtrl])
 })();
