@@ -11,11 +11,16 @@
                 url: '/',
                 controller: 'HomeCtrl as home',
                 templateUrl: '/templates/home.html'
+            })
+            .state('setUser', {
+                url: '/setUser',
+                controller: 'SetUserCtrl as setUser',
+                templateUrl: '/templates/setUser.html'
         });
     }
     
     angular
-        .module('blocChat', ['ui.router', 'firebase'])
+        .module('blocChat', ['ui.router', 'firebase', 'ngCookies'])
         .config(config);
 })();
 
