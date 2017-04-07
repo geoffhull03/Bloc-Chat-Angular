@@ -7,8 +7,11 @@
          return {
             getByRoomId: function (roomId) {
                 return $firebaseArray(ref.orderByChild('roomId').equalTo(roomId));
-            }
-        }
+            },
+             send: function(newMessage) {
+                 messages.$add(newMessage);
+             }
+        };
     }
     
   angular

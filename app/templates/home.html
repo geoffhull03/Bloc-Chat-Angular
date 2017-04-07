@@ -15,9 +15,16 @@
     <h1>{{ home.currentRoom.name }}</h1>
         <div ng-repeat="message in home.messages">
             <div class="time"> {{ message.time | date:'short'}}</div>
-            <div class="username">{{ message.username }}</div>
+            <div class="username">{{ home.user }}</div>
             <div class="content">{{ message.content }}</div>
             
          </div>
 </div>
-    
+
+    <form class="message-field" ng-submit="home.sendMessage()">
+        <input type="text" name="input" placeholder="Type your message here" ng-model="home.newMessage.content" style="width:500px;">
+        <button>Send Message</button>
+    </div>
+    </form>
+</div>
+
